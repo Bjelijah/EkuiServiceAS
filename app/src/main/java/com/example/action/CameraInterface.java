@@ -28,7 +28,7 @@ import java.util.List;
 
 
 
-@SuppressWarnings("deprecation")
+
 public class CameraInterface implements ICameraInterface {
 	private static final String TAG = "CameraInterface";  
 
@@ -139,7 +139,10 @@ public class CameraInterface implements ICameraInterface {
 
 	public void doStartPreview(PreviewCallback callback){
 		if (isPreviewing) {
+			Log.e("123","isPreviewing");
 			mCamera.stopPreview();
+		}else{
+			Log.e("123","is not preview");
 		}
 		if(mCamera != null){  
 			try {
@@ -170,7 +173,7 @@ public class CameraInterface implements ICameraInterface {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
+
 	private void initCamera(float previewRate,boolean byuv){  
 		if(mCamera != null){  
 
@@ -192,8 +195,8 @@ public class CameraInterface implements ICameraInterface {
 			
 			
 			Size previewSize = CamParaUtil.getInstance().getPropPreviewSize(  
-					mParams.getSupportedPreviewSizes(), previewRate, 500);  
-			
+					mParams.getSupportedPreviewSizes(), previewRate, 500);
+			Log.e("123","get preview size ok");
 			
 			
 			
@@ -221,14 +224,14 @@ public class CameraInterface implements ICameraInterface {
 			
 				mCamera.setPreviewCallbackWithBuffer(mCallback);
 				mCamera.addCallbackBuffer(new byte[previewSize.width*previewSize.height*3/2]);  
-				mAvcEncoder = new AvcEncoder(previewSize.width, previewSize.height, 25, 1000000);
+				mAvcEncoder = new AvcEncoder(previewSize.width, previewSize.height, 25, 2000000);
 				
 				h264 = new byte [previewSize.width*previewSize.height*3/2];
 				
 			}
-			
-			mCamera.startPreview();//开启预览  
 
+			mCamera.startPreview();//开启预览  
+			Log.e("123","start preview ok");
 
 
 			isPreviewing = true;  

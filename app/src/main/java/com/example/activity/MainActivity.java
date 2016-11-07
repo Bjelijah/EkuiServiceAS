@@ -10,6 +10,9 @@ import com.example.action.TestSocket;
 import com.example.bean.AvcEncoder;
 import com.howell.ekuiservice.R;
 
+
+
+@Deprecated
 public class MainActivity extends Activity{
 
 	TestSocket mgr;
@@ -30,7 +33,7 @@ public class MainActivity extends Activity{
 //
 //				Intent intent = new Intent("RESTART_SERVER");
 //				sendBroadcast(intent);
-		finish();
+//		finish();
 		
 //		mgr = TestSocket.getInstance();
 //		mgr.init(SERVICE_PORT, CLIENT_PORT);

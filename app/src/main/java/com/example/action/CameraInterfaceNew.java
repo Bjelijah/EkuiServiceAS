@@ -20,7 +20,7 @@ import com.example.bean.ICameraInterface;
 
 @SuppressLint("NewApi")
 public class CameraInterfaceNew implements ICameraInterface {
-
+	private static final String TAG = "CameraInterfaceNew";
 	private static CameraInterfaceNew mInstance = null;
 	public static CameraInterfaceNew getInstance(){
 		if (mInstance==null) {

@@ -37,6 +37,7 @@
                 <action android:name="MAIN_SERVICE"/>
             </intent-filter>
         </service>
+        <service android:name="com.example.service.SearchService" />
 
         <receiver android:name="com.example.broadcast.MyReceive"
             android:permission="com.example.ekuiservice.permission.myreceive">

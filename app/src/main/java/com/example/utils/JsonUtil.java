@@ -57,5 +57,27 @@ public class JsonUtil {
 		b.putInt(EkuiProtocol.BUNDLE_LOGOUT_HANDLE, handle);
 		return b;
 	}
-	
+
+	public static String getSearchIP(String jsonStr){
+		String str = null;
+		JSONObject o = null;
+		try {
+			o = new JSONObject(jsonStr);
+			str = o.getString("ClientIP");
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return  str;
+	}
+
+	public static String createIPJstr(String ip){
+		JSONObject o = new JSONObject();
+		try {
+			o.put("ServerIP",ip);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return o.toString();
+	}
+
 }
